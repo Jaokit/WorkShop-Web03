@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KULLAKITE K. — Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&family=Noto+Sans+Thai:wght@300;400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            --nav: #060135;
+            --bg: #000C58;
+            --panel: #0A1F62;
+            --divider: #123079;
+
+            --ink: #fff;
+            --ink-dim: #B7C6F2;
+            --muted: #8EA2DE;
+
+            --btn-light: #EAF1FF;
+            --btn-light-ink: #0B1E50;
+            --btn-dark: #0F2C8A;
+            --btn-dark-hover: #12369F;
+
+            --wrap: 1120px;
+            --radius: 16px;
+            --shadow: 0 12px 28px rgba(0, 0, 0, .25);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 72px
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "Noto Sans Thai", Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            font-size: clamp(14px, .85vw, 16px);
+        }
+
+        img {
+            display: block;
+            max-width: 100%
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .wrap {
+            max-width: var(--wrap);
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 28px);
+        }
+
+        .rule {
+            height: 1px;
+            background: var(--divider);
+            margin: 44px 0
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--nav);
+            border-bottom: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .nav {
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding-block: 6px;
+        }
+
+        .brand {
+            font-family: "Bebas Neue", sans-serif;
+            letter-spacing: .9px;
+            font-size: 18px;
+            white-space: nowrap
+        }
+
+        .nav nav {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap
+        }
+
+        .nav a.link {
+            font: 600 12px/1 Inter, sans-serif;
+            color: #E5ECFF;
+            opacity: .9
+        }
+
+        .nav a.link:hover {
+            opacity: 1
+        }
+
+        /* Hero */
+        .hero {
+            padding: clamp(36px, 6vw, 56px) 0 clamp(24px, 4vw, 34px)
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+            gap: clamp(20px, 3.5vw, 36px);
+            align-items: center;
+        }
+
+        .eyebrow {
+            font-family: "Bebas Neue", sans-serif;
+            letter-spacing: .6px;
+            font-size: clamp(20px, 2.2vw, 26px);
+            line-height: 1
+        }
+
+        .h1 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: clamp(36px, 6.2vw, 66px);
+            line-height: .93;
+            letter-spacing: .3px;
+            margin: 6px 0 8px;
+        }
+
+        .sub {
+            color: var(--ink-dim);
+            font-size: clamp(12.5px, 1.2vw, 14px);
+            line-height: 1.9;
+            max-width: 52ch
+        }
+
+        .cta-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 18px;
+            flex-wrap: wrap
+        }
+
+        .btn-pill {
+            background: var(--btn-light);
+            color: var(--btn-light-ink);
+            border: 1px solid rgba(10, 30, 80, .08);
+            padding: 10px 16px;
+            border-radius: 999px;
+            font: 800 12px/1 Inter, "Noto Sans Thai";
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, .35) inset, 0 6px 14px rgba(15, 44, 138, .18);
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+
+        .btn-pill:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, .45) inset, 0 10px 18px rgba(15, 44, 138, .28)
+        }
+
+        .circle {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            background: var(--btn-dark);
+            color: #E9F1FF;
+            border: 1px solid rgba(255, 255, 255, .18);
+            font-size: 14px;
+            transition: transform .15s ease, background .2s ease;
+        }
+
+        .circle:hover {
+            background: var(--btn-dark-hover);
+            transform: translateY(-1px)
+        }
+
+        .hero-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--panel);
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: var(--shadow);
+            aspect-ratio: 4/5;
+        }
+
+        .hero-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center
+        }
+
+        /* Headings/Text */
+        .h2 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: clamp(34px, 4.2vw, 50px);
+            line-height: .95;
+            margin: 0 0 10px;
+            letter-spacing: .3px
+        }
+
+        .p {
+            color: var(--ink-dim);
+            font-size: clamp(13px, 1.1vw, 14px);
+            line-height: 1.95
+        }
+
+        .p.muted {
+            color: var(--muted)
+        }
+
+        .p.muted a {
+            text-decoration: underline
+        }
+
+        .p.lead {
+            color: var(--ink);
+            font-size: clamp(15px, 1.3vw, 16px);
+            font-weight: 700;
+            line-height: 2
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(20px, 3.5vw, 36px);
+            align-items: start
+        }
+
+        .about-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap
+        }
+
+        .about-card {
+            background: var(--panel);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            aspect-ratio: 16/9;
+        }
+
+        .about-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        /* Shared 2-col (หัวข้อซ้าย / เนื้อหาขวา) */
+        .two-col,
+        .section-grid,
+        .contact-grid {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: clamp(20px, 3.5vw, 36px);
+            align-items: start;
+        }
+
+        /* Chips */
+        .chips {
+            display: grid;
+            grid-template-columns: repeat(4, max-content);
+            gap: 18px 22px;
+            margin-top: 18px;
+            justify-content: start;
+        }
+
+        .chip {
+            display: inline-flex;
+            justify-self: start;
+            align-items: center;
+            color: #CFE0FF;
+            border: 1px solid #2A4AA4;
+            padding: 12px 22px;
+            border-radius: 999px;
+            font: 800 14px/1 Inter, "Noto Sans Thai";
+            background: transparent;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, .02) inset;
+            white-space: nowrap;
+        }
+
+        /* Experience */
+        .xp {
+            border-top: 1px solid var(--divider)
+        }
+
+        .xp-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px 16px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--divider)
+        }
+
+        .xp-title {
+            font: 800 14px/1.4 Inter, "Noto Sans Thai"
+        }
+
+        .xp-date {
+            color: var(--muted);
+            font: 600 12px/1 Inter;
+            justify-self: end;
+            white-space: nowrap
+        }
+
+        .xp-desc {
+            grid-column: 1 / -1;
+            color: var(--ink-dim);
+            font-size: 14px;
+            line-height: 1.9
+        }
+
+        /* Contact */
+        .section {
+            padding: 12px 0
+        }
+
+        .socials {
+            display: flex;
+            gap: 14px;
+            margin-top: 8px
+        }
+
+        .socials a {
+            color: #cfe0ff
+        }
+
+        .socials a:hover {
+            color: #fff
+        }
+
+        label {
+            display: block;
+            font: 600 12px/1 Inter, "Noto Sans Thai";
+            color: #A9B9EE;
+            margin: 10px 0 6px
+        }
+
+        .input,
+        .textarea {
+            width: 100%;
+            background: #060135;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color .15s ease, box-shadow .15s ease;
+        }
+
+        .input:focus,
+        .textarea:focus {
+            border-color: #3658E0;
+            box-shadow: 0 0 0 3px rgba(54, 88, 224, .25)
+        }
+
+        .textarea {
+            min-height: 140px;
+            resize: vertical
+        }
+
+        .submit {
+            margin-top: 16px;
+            background: var(--btn-light);
+            color: var(--btn-light-ink);
+            border: 1px solid rgba(10, 30, 80, .1);
+            border-radius: 999px;
+            padding: 12px 22px;
+            font: 800 12px/1 Inter, "Noto Sans Thai";
+            cursor: pointer;
+            transition: transform .15s ease, box-shadow .15s ease;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, .35) inset, 0 6px 14px rgba(15, 44, 138, .18);
+            width: fit-content;
+        }
+
+        .submit:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, .45) inset, 0 10px 18px rgba(15, 44, 138, .28)
+        }
+
+        footer {
+            border-top: 1px solid var(--divider);
+            color: #8AA0DF;
+            font: 400 12px/1.6 Inter;
+            text-align: center;
+            padding: 20px 0 34px
+        }
+
+        /* Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .5s ease, transform .5s ease
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        /* ====== Responsive Breakpoints ====== */
+        /* Laptops <= 1280px */
+        @media (max-width:1280px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        /* Tablets <= 1024px */
+        @media (max-width:1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr
+            }
+
+            .two-col {
+                grid-template-columns: 1fr
+            }
+
+            .section-grid {
+                grid-template-columns: 1fr
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* Phones <= 640px */
+        @media (max-width:640px) {
+            .nav {
+                align-items: flex-start
+            }
+
+            .brand {
+                font-size: 16px
+            }
+
+            .nav nav {
+                gap: 10px
+            }
+
+            .eyebrow {
+                font-size: 22px
+            }
+
+            .chips {
+                grid-template-columns: repeat(2, max-content)
+            }
+
+            .circle {
+                width: 32px;
+                height: 32px;
+                font-size: 13px
+            }
+
+            .btn-pill {
+                padding: 10px 14px
+            }
+
+            .submit {
+                width: 100%
+            }
+        }
+
+        /* Small phones <= 380px */
+        @media (max-width:380px) {
+            .nav nav {
+                gap: 8px
+            }
+
+            .nav a.link {
+                font-size: 11px
+            }
+
+            .chip {
+                padding: 10px 16px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="top"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="wrap nav">
+            <a href="#top" class="brand">KULLAKITE JINDAMORAGOD</a>
+            <nav>
+                <a class="link" href="#work">Work</a>
+                <a class="link" href="#about">About</a>
+                <a class="link" href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="wrap hero">
+        <div class="hero-grid">
+            <div class="reveal">
+                <div class="eyebrow">HI, I AM</div>
+                <h1 class="h1">KULLAKITE K.</h1>
+                <p class="sub">
+                    นักพัฒนาเว็บไซต์ฝั่งฟรอนท์เอนด์จากประเทศไทย ที่มีความหลงใหลในการสร้าง
+                    เว็บไซต์ที่เข้าถึงได้และเป็นมิตรกับผู้ใช้
+                </p>
+                <div class="cta-row">
+                    <a class="btn-pill" href="#contact">CONTACT ME</a>
+                    <a class="circle" href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a class="circle" href="https://github.com" target="_blank" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="hero-card reveal">
+                <img src="./images/image1.png" alt="Portrait (Hero)">
+            </div>
+        </div>
+    </section>
+
+    <div class="wrap">
+        <div class="rule"></div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="wrap section">
+        <div class="about-grid">
+            <div class="reveal">
+                <h2 id="about" class="h2">ABOUT ME</h2>
+            </div>
+            <div class="reveal">
+                <p class="p lead">
+                    ผมเป็นนักพัฒนาเว็บไซต์ฝั่งฟรอนท์เอนด์ที่ทำงานอยู่ในกรุงเทพฯ กำลังมองหาโอกาสที่น่าตื่นเต้น ในการ
+                    ทำงานมีพื้นฐานการศึกษาด้าน วิศวกรรมซอฟต์แวร์
+                </p>
+                <p class="p">
+                    ชอบให้ความสำคัญกับการเข้าถึง (accessibility) เมื่อพัฒนาเว็บไซต์ มีความกระตือรือร้นและอยากรู้
+                    อยากเห็นเกี่ยวกับการแก้ปัญหาต่างๆ ปัจจุบันกำลังศึกษาเรียนรู้เกี่ยวกับ React.js และการออกแบบ
+                    เว็บไซต์เล็กน้อยเมื่อไม่ได้เขียนโปรแกรม ดิฉัน/ผมชอบเล่นฟุตบอล ถ่ายภาพ และเล่นเกม FIFA, Diablo
+                    กำลังเรียนรู้เพิ่มเติมเพื่อพัฒนาทักษะอยู่เสมอ
+                </p>
+
+                <div class="about-actions">
+                    <a class="btn-pill" href="assets/Chanintorn_Resume.pdf" target="_blank" rel="noopener">Download
+                        Resume</a>
+                    <a class="circle" href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a class="circle" href="https://github.com" target="_blank" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div style="height:36px"></div>
+
+        <div class="about-card reveal">
+            <img src="./images/image2.png" alt="Working at desk">
+        </div>
+    </section>
+
+    <div class="wrap">
+        <div class="rule"></div>
+    </div>
+
+    <!-- CAPABILITIES -->
+    <section class="wrap section reveal">
+        <div class="two-col">
+            <h2 id="work" class="h2">MY CAPABILITIES</h2>
+            <div>
+                <p class="p muted" style="margin:0">
+                    ผมมองหาโอกาสในการเพิ่มทักษะใหม่ๆ อยู่เสมอ <br>
+                    ทั้งการพัฒนาฟรอนท์เอนด์ แบล็กเอนต์ การ ออกแบบ UX/UI ฐานข้อมูล
+                </p>
+                <div class="chips">
+                    <span class="chip">HTML</span>
+                    <span class="chip">CSS</span>
+                    <span class="chip">Javascript</span>
+                    <span class="chip">FLUTTER</span>
+                    <span class="chip">DART</span>
+                    <span class="chip">IoT</span>
+                    <span class="chip">database</span>
+                    <span class="chip">React</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wrap">
+        <div class="rule"></div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <section class="wrap section reveal">
+        <div class="section-grid">
+            <h2 class="h2">MY EXPERIENCE</h2>
+            <div class="xp">
+                <div class="xp-row">
+                    <div class="xp-title">Freelance Developer</div>
+                    <div class="xp-date">Nov 2023 — Present </div>
+                    <div class="xp-desc">
+                        พัฒนาและปรับปรุงส่วนติดต่อผู้ใช้สำหรับเว็บแอปพลิเคชันโดยใช้ React.js ทำงานร่วมกับทีม ออกแบบ
+                        UX/UI เพื่อสร้างประสบการณ์ผู้ใช้ที่น่าประทับใจปรับปรุงความเร็วในการโหลด
+                        เว็บไซต์ด้วยเทคนิคการเพิ่มประสิทธิภาพต่างๆร่วมพัฒนาและดูแลไลบรารีคอมโพเนนต์ภายใน องค์กร
+                    </div>
+                </div>
+
+                <div class="xp-row">
+                    <div class="xp-title">Front-End Intern</div>
+                    <div class="xp-date">Sep 2023 — Nov 2023 </div>
+                    <div class="xp-desc">
+                        พัฒนาเว็บไซต์ลูกค้าโดยใช้ HTML, CSS และ JavaScript<br />
+                        ช่วยปรับปรุงการเข้าถึง (Accessibility) ของเว็บไซต์ให้สอดคล้องกับมาตรฐาน WCAG<br />
+                        ทำงานร่วมกับทีมแบ็คเอนด์เพื่อเชื่อมต่อ API
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wrap">
+        <div class="rule"></div>
+    </div>
+
+    <!-- CONTACT -->
+    <section class="wrap section reveal">
+        <div class="contact-grid">
+            <div>
+                <h2 id="contact" class="h2">LET’S CONNECT</h2>
+                <p class="p muted" style="margin:6px 0 0">
+                    Say hello at <a href="mailto:S6752C10008@sau.ac.th">S6752C10008@sau.ac.th</a><br />
+                    For more info, here’s my <a href="assets/Chanintorn_Resume.pdf" target="_blank"
+                        rel="noopener">resume</a>
+                </p>
+                <div class="socials">
+                    <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com" target="_blank" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <form id="contactForm">
+                <label for="name">Name</label>
+                <input id="name" class="input" type="text" placeholder="Your name" required>
+
+                <label for="email">Email</label>
+                <input id="email" class="input" type="email" placeholder="name@example.com" required>
+
+                <label for="subject">Subject</label>
+                <input id="subject" class="input" type="text" placeholder="Subject">
+
+                <label for="message">Message</label>
+                <textarea id="message" class="textarea" placeholder="Write your message..."></textarea>
+
+                <button class="submit" type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>© 2025 Created by SAU-Dev-Team</footer>
+
+    <script>
+        // reveal on scroll
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+        }, { threshold: 0.14 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        // contact form (mailto)
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const from = document.getElementById('email').value.trim();
+            const subject = (document.getElementById('subject').value || 'Website Contact').trim();
+            const body = (document.getElementById('message').value || '').trim();
+            const to = 'S6752C10008@sau.ac.th';
+            const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                `Name: ${name}\nEmail: ${from}\n\n${body}`)}`;
+            window.location.href = mailto;
+        });
+    </script>
+</body>
+
+</html>
